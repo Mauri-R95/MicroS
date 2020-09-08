@@ -10,7 +10,7 @@ namespace MicroS.Infrastructure.DataAccess.EntityConfig
     {
         public static void setEntityBuilder(EntityTypeBuilder<RegionEntity> entityBuilder)
         {
-            entityBuilder.ToTable("User");
+            entityBuilder.ToTable("User"); 
             entityBuilder.HasKey(x => x.IdReg);
             entityBuilder.Property(x => x.IdReg).IsRequired();
 
