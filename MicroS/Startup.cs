@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MicroS.Api.Config;
+using MicroS.Infrastructure;
+using MicroS.Infrastructure.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,8 +29,12 @@ namespace MicroS
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            SwaggerConfig.AddRegistration(services);
+            services.AddScoped<IMicroSDBContext, MicroSDBContext>();
+            services.AddDbContext<MicroSDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DataBaseConnection")));
+            
             services.AddControllers();
+            services.AddMvc();
+            SwaggerConfig.AddRegistration(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
