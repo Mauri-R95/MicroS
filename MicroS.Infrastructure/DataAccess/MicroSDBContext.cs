@@ -12,11 +12,14 @@ namespace MicroS.Infrastructure.DataAccess
         public DbSet<User2ComunaEntity> User2Comuna{ get; set; }
         public DbSet<ComunaEntity> Comuna { get; set; }
         public DbSet<RegionEntity > Region { get; set; }
-
-        public MicroSDBContext()
+        public MicroSDBContext(DbContextOptions options) : base(options)
         {
 
         }
+        public MicroSDBContext(){
+
+        }
+        
         //Sobrecarga del metodo ModelCreating para crear el modelo directamente cuando hacemos el esquema
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
