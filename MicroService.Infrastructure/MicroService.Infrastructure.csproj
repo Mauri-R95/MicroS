@@ -12,9 +12,4 @@
     <ProjectReference Include="..\MicroService.Domain\MicroService.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Entities\" />
-    <Folder Include="UnitOfWork\" />
-  </ItemGroup>
-
 </Project>

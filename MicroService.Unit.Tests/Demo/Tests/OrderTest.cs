@@ -25,7 +25,7 @@ namespace MicroService.Unit.Tests
             //Ejecucion
             var result = _orderRepository.Object.Get(1);
             //Asercion
-            result.Id.Should().NotBe(2);
+            result.Id.Should().NotBe(1);
             result.Should().NotBeNull();
             result.IsCompleted.Should().BeTrue();
         }
