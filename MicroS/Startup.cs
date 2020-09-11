@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MicroS.Api.Config;
+using MicroService.Domain.Demo;
+using MicroService.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +30,7 @@ namespace MicroS
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddMvc();
             SwaggerConfig.AddRegistration(services);
         }
