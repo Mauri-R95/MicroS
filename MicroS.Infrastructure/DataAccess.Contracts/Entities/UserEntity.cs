@@ -10,7 +10,7 @@ namespace MicroS.Infrastructure.DataAccess.Contracts.Entities
         public string Rut { get; set; }
         public string Nombre { get; set; }
         public string ApellidoP { get; set; }
-        public bool Actiive { get; set; }
+        public bool Active { get; set; }
         public DateTime CreateDate { get; set; }
 
         public virtual ICollection<User2ComunaEntity> User2Comuna { get; set; }

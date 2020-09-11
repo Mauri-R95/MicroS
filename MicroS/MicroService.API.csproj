@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\NTBDival\source\repos\MicroS\MicroS\MicroS.Api.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.35" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Application\IntegrationEvents\" />
+    <Folder Include="Application\DomainEventHandlers\" />
+    <Folder Include="Application\Commands\" />
+    <Folder Include="Application\Behaviors\" />
+    <Folder Include="Application\Models\" />
+    <Folder Include="Application\Queries\" />
+    <Folder Include="Application\Validations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MicroService.Domain\MicroService.Domain.csproj" />
+    <ProjectReference Include="..\MicroService.Infrastructure\MicroService.Infrastructure.csproj" />
+  </ItemGroup>
+
+
+</Project>
